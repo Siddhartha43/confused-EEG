@@ -14,6 +14,12 @@ This research was driven by our curiosity about whether it's feasible to assess 
   - Overall normalization
 - Target variable: `y` (user-defined label)
 
+## Discussion on Data Handling
+
+In reviewing previous methodologies used on Kaggle, a significant flaw was identified in the data handling process. There was an issue where data from the same participant was being used in both the training and testing phases of the model development. This practice inadvertently allowed the model to 'see' part of the answers beforehand, leading to an overestimated accuracy rate in the testing evaluation.
+
+To rectify this, a more robust approach has been adopted to ensure that each participant's data is exclusively allocated to either the training set or the testing set, but not both. This method, known as 'subject independence', is critical for validating the model's ability to generalize to new, unseen data. By enforcing this separation, we aim to achieve a more accurate and realistic assessment of the model's predictive performance.
+
 ## Model Training
 - Models used: Random Forest, SVM, KNN
 - Exclude data for specific test subjects (IDs: 3, 5)
@@ -50,3 +56,5 @@ Performance comparison of models with different normalization methods:
 | **Improvement**      | 14.51%  | 17.94%  | 23.66%        |
 
 The results demonstrate significant improvement in model performance when using overall standardization compared to individual standardization.
+
+
